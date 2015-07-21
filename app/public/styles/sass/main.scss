@@ -1,0 +1,10 @@
+@import 'color';
+body{
+	background: $primary-color;
+}
+
+.con { 
+	background: $color!important;
+	float: left;
+	text-align:center;
+}
