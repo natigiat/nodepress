@@ -1,0 +1,39 @@
+{
+  "name": "nodepress",
+  "version": "0.0.0",
+  "authors": [
+    "natigiat <natigiat@gmail.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/public/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular": ">=1.2.*",
+    "json3": "~3.3.1",
+    "es5-shim": "~3.0.1",
+    "jquery": "~2.1.4",
+    "bootstrap-sass-official": "~3.1.1",
+    "angular-resource": ">=1.2.*",
+    "angular-cookies": ">=1.2.*",
+    "angular-sanitize": ">=1.2.*",
+    "angular-bootstrap": "~0.11.0",
+    "font-awesome": ">=4.1.0",
+    "lodash": "~2.4.1",
+    "angular-socket-io": "~0.6.0",
+    "angular-ui-router": "~0.2.10"
+  }
+}
