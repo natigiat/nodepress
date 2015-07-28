@@ -11,13 +11,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    
+    <link rel="stylesheet" href="public/bower/bootstrap/dist/css/bootstrap.css" />
     <!-- injector:css -->
     <link rel="stylesheet" href="public/styles/build/main.css">
     <!-- endinjector -->
 
+    <link rel="stylesheet" href="public/styles/build/icons.css">
+
     <!-- bower:css -->
     <link rel="stylesheet" href="public/bower/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="public/bower/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="public/bower/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.css" />
     <!-- endbower -->
 
   </head>
@@ -25,10 +29,17 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-asdfd
-sdfsdsdfsdfdsdsdfsdfsdfsasd fg
-    <!-- Add your site or application content here -->
-    <div ui-view=""></div>
+
+    <div id="wrapper">
+        <div ng-include="'views/main/nav.html'"></div>
+
+        <!-- Add your site or application content here -->
+        <div ui-view=""></div>
+
+        <div ng-include="'views/main/sidebar.html'"></div>
+    </div>
+
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -67,15 +78,42 @@ sdfsdsdfsdfdsdsdfsdfsdfsasd fg
       <script src="public/bower/lodash/dist/lodash.compat.js"></script>
       <script src="public/bower/angular-socket-io/socket.js"></script>
       <script src="public/bower/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="public/bower/angular-route/angular-route.js"></script>
+      <script src="public/bower/ui-router/release/angular-ui-router.js"></script>
+      <script src="public/bower/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
+      <script src="public/bower/datatables/media/js/jquery.dataTables.js"></script>
+      <script src="public/bower/angular-datatables/dist/angular-datatables.js"></script>
+      <script src="public/bower/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.js"></script>
+      <script src="public/bower/angular-datatables/dist/plugins/colreorder/angular-datatables.colreorder.js"></script>
+      <script src="public/bower/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js"></script>
+      <script src="public/bower/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.js"></script>
+      <script src="public/bower/angular-datatables/dist/plugins/fixedcolumns/angular-datatables.fixedcolumns.js"></script>
+      <script src="public/bower/angular-datatables/dist/plugins/fixedheader/angular-datatables.fixedheader.js"></script>
+      <script src="public/bower/angular-datatables/dist/plugins/scroller/angular-datatables.scroller.js"></script>
+      <script src="public/bower/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js"></script>
       <!-- endbower -->
 
-      
-
       <!-- injector:js -->
-
+      <script src="app.js"></script>
       <!-- endinjector -->
-    
+
+      <!-- injector:controllers -->
+      <script src="controllers/pages/comments.js"></script>
+      <script src="controllers/pages/contacts.js"></script>
+      <script src="controllers/pages/dashboard.js"></script>
+      <script src="controllers/pages/pages.js"></script>
+      <script src="controllers/pages/posts.js"></script>
+      <!-- endinjector -->
+
+      <!-- injector:directives -->
+      <script src="directives/nodepressForm.js"></script>
+      <!-- endinjector -->
+
+
+
       <script src="//localhost:35729/livereload.js"></script>
+
+
 
 </body>
 </html>

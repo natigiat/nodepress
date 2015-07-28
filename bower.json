@@ -30,10 +30,14 @@
     "angular-resource": ">=1.2.*",
     "angular-cookies": ">=1.2.*",
     "angular-sanitize": ">=1.2.*",
-    "angular-bootstrap": "~0.11.0",
+    "angular-bootstrap": "~0.13.0",
     "font-awesome": ">=4.1.0",
     "lodash": "~2.4.1",
     "angular-socket-io": "~0.6.0",
-    "angular-ui-router": "~0.2.10"
+    "angular-ui-router": "~0.2.10",
+    "angular-route": "~1.4.3",
+    "ui-router": "~0.2.15",
+    "angular-ui-bootstrap-bower": "~0.13.0",
+    "angular-datatables": "~0.4.3"
   }
 }

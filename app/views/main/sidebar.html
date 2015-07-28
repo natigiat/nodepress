@@ -1,0 +1,49 @@
+<div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <span class="icon-diamond"></span>
+                    <a href="#/dashboard">Dashboard</a>
+                </li>
+                <li>
+                    <span class="icon-pen2"></span>
+                    <a href="#/posts">Posts</a>
+                </li>
+                <li>
+                    <a href="#/pages">Pages</a>
+                </li>
+                <li>
+                    <a href="#/media">Media</a>
+                </li>
+                <li>
+                    <a href="#/comments">Comments</a>
+                </li>
+                <li>
+                    <a href="#/contacts">Contacts</a>
+                </li>
+                <li>
+                    <a href="#/design">Design</a>
+                </li>
+                <li>
+                    <a href="#/settings">Settings</a>
+                </li>
+                <li>
+                	<a href="#" class="glyphicon glyphicon-triangle-left" id="menu-toggle" aria-hidden="true">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+
+         <script>
+          jQuery(document).ready(function($) {
+              $("#menu-toggle").on('click', function(e) {
+                  e.preventDefault();
+                  $("#wrapper").toggleClass("toggled");
+              });
+          });
+
+        </script>

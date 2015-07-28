@@ -4,10 +4,10 @@ var path = require('path');
 
 
 module.exports = function(grunt) {
- 
+
 
   // Load grunt tasks automatically, when needed
-  
+
   require('jit-grunt')(grunt, {
     injector: 'grunt-asset-injector'
   });
@@ -18,16 +18,25 @@ module.exports = function(grunt) {
 
 
 
-  // Configure Grunt 
+  // Configure Grunt
   grunt.initConfig({
 
 
      watch: {
 
+    injectController: {
+       files: ['app/controllers/**/*.js'],
+       tasks: ['injector:controllers']
+     },
+     injectDirectives: {
+       files: ['app/directives/**/*.js'],
+       tasks: ['injector:directives']
+     },
 
-      // html: {
-      //   files: ['app/**/*html' ,  'app/**/*scss', 'app/**/*scss'],
-      // },
+
+      html: {
+        files: ['app/**/*html' ,  'app/**/*scss', 'app/**/*scss'],
+      },
 
       sass: {
         files: ['app/public/styles/**/*.{scss,sass}'],
@@ -49,19 +58,15 @@ module.exports = function(grunt) {
         }
       },
 
-
-
-
-
     },
 
 
-     sass: {                              
+     sass: {
       dist: {
         files: {
              'app/public/styles/build/main.css': 'app/public/styles/sass/main.scss'
         }
-      }  
+      }
     },
 
 
@@ -79,7 +84,7 @@ module.exports = function(grunt) {
 
 
     wiredep: {
- 
+
       target: {
         src: 'app/index.html',
         // ignorePath: '<%= yeoman.client %>/',
@@ -100,19 +105,65 @@ module.exports = function(grunt) {
     },
 
     injector: {
-      options: {
+      style: {
+        options: {
+              transform: function(filePath) {
+                filePath = filePath.replace('/app/', '');
+                return '<link rel="stylesheet" href="' + filePath + '">';
+              },
+              starttag: '<!-- injector:css -->',
+              endtag: '<!-- endinjector -->'
+            },
+            files: {
+              'app/index.html': ['app/public/styles/build/main.css'],
+            }
+        },
+
+
+      // Inject component scss into app.scss
+      js: {
+        options: {
           transform: function(filePath) {
             filePath = filePath.replace('/app/', '');
-            return '<link rel="stylesheet" href="' + filePath + '">';
+            return '<script src="' + filePath + '"></script>';
           },
+          starttag: '<!-- injector:js -->',
+          endtag: '<!-- endinjector -->'
         },
-      local_dependencies: {
         files: {
-          'app/index.html': ['app/public/js/**/*.js', 'app/public/styles/build/main.css'],
+            'app/index.html': ['app/app.js'],
         }
-      }
-    },
-  
+      },
+
+      controllers: {
+        options: {
+          transform: function(filePath) {
+            filePath = filePath.replace('/app/', '');
+            return '<script src="' + filePath + '"></script>';
+          },
+          starttag: '<!-- injector:controllers -->',
+          endtag: '<!-- endinjector -->'
+        },
+        files: {
+            'app/index.html': ['app/controllers/**/*.js'],
+        }
+      },
+
+      directives: {
+        options: {
+          transform: function(filePath) {
+            filePath = filePath.replace('/app/', '');
+            return '<script src="' + filePath + '"></script>';
+          },
+          starttag: '<!-- injector:directives -->',
+          endtag: '<!-- endinjector -->'
+        },
+        files: {
+            'app/index.html': ['app/directives/**/*.js'],
+        }
+      },
+  },
+
     open: {
       dev: {
         path: 'http://localhost:<%= express.dev.options.port%>',
@@ -121,9 +172,9 @@ module.exports = function(grunt) {
     }
 
   });
-  
+
   // grunt.loadNpmTasks('grunt-express');
   grunt.registerTask('ex', [ 'injector']);
   grunt.registerTask('serve', [ 'express:dev' ,'sass' ,'cssmin','wiredep','open','injector', 'watch']);
-   
+
 };

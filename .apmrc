@@ -1,0 +1,9 @@
+; This file is auto-generated and should not be edited since any
+; modifications will be lost the next time any apm command is run.
+;
+; You should instead edit your .apmrc config located in ~/.atom/.apmrc
+cache = C:\Users\netanel\.atom\.apm
+
+https-proxy = http://192.168.176.80:8080/
+http-proxy = http://192.168.176.80:8080/
+strict-ssl = false
