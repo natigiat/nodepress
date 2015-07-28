@@ -16,12 +16,25 @@ var nodepress = angular.module('nodepress', [
       templateUrl: 'views/pages/dashboard.html'
     })
 
-
+    .state('/login' , {
+      url: '/login',
+      templateUrl: 'views/auth/login.html',
+    })
 
     .state('/dashboard' , {
       url: '/dashboard',
       templateUrl: 'views/pages/dashboard.html',
       controller: 'DashboardCtrl'
+    })
+
+    .state('/media' , {
+      url: '/media',
+      templateUrl: 'views/pages/media.html'
+    })
+
+    .state('/users' , {
+      url: '/users',
+      templateUrl: 'views/pages/users.html'
     })
 
     .state('/posts' , {
@@ -35,12 +48,6 @@ var nodepress = angular.module('nodepress', [
       templateUrl: 'views/pages/pages.html',
       controller: 'PagesCtrl'
     })
-
-    .state('/media' , {
-      url: '/media',
-      templateUrl: 'views/pages/media.html'
-    })
-
 
     .state('/comments' , {
       url: '/comments',
@@ -57,6 +64,11 @@ var nodepress = angular.module('nodepress', [
     .state('/design' , {
       url: '/design',
       templateUrl: 'views/pages/design.html'
+    })
+
+    .state('/packages' , {
+      url: '/packages',
+      templateUrl: 'views/pages/packages.html'
     })
 
     .state('/settings' , {

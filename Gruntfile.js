@@ -164,6 +164,12 @@ module.exports = function(grunt) {
       },
   },
 
+  nodemon: {
+    dev: {
+     script: 'config/server/dev/server.js'
+    }
+  }, 
+  
     open: {
       dev: {
         path: 'http://localhost:<%= express.dev.options.port%>',
